@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Article{% endblock %}
+{% block menu %}
+    <a href="{% url 'article_add' %}">Добавить</a>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1>Задание</h1>
+        <p>Заголовок: {{ article.title }}</p>
+        <p>Описание: {{ article.description }}</p>
+        <p>Подробнее: {{ article.detailed_description }}</p>
+        <p>Дата: {{ article.date }}</p>
+        <p>Статус: {{ article.status }}</p>
+    </div>
+{% endblock %}
