@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Добавить{% endblock %}
+{% block content %}
+    <h1>Создать новое задание</h1>
+    <div class="form">
+        <form action="{% url 'article_add' %}" method="post">
+            {% csrf_token %}
+            <div class="Title-Block">
+                <label for="title">Заголовок</label>
+                <input type="text" id="title" name="title" required="required">
+            </div>
+            <div class="Description-Block">
+                <label for="description">Описание</label>
+                <input type="text" id="description" name="description">
+            </div>
+            <div class="Detailed-Description-Block">
+                <label for="detailed_description">Подробнее</label>
+                <textarea name="detailed_description" id="detailed_description" cols="30" rows="10"></textarea>
+            </div>
+            <div class="Date-Block">
+                <label for="date">Дата</label>
+                <input type="date" id="date" name="date">
+            </div>
+            <div class="Status-Block">
+                <label for="status">Статус</label>
+                <select name="status" id="status" class="status_selection" required="required">
+                    <option value="New" selected>Новая</option>
+                    <option value="In progress..">В процессе</option>
+                    <option value="Done">Сделано</option>
+                </select>
+            </div>
+            <div class="sub_button">
+                <input type="submit">
+            </div>
+        </form>
+    </div>
+{% endblock %}
+</body>
+</html>
