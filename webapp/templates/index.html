@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block menu %}
+    <a href="{% url 'article_add' %}">Добавить</a>
+{% endblock %}
+{% block content %}
+    <h1>Добро пожаловать на ваш лист задач, добавьте новую задачу или посмотрите старую!</h1>
+    {% for article in articles %}
+            <h2>{{ article.title }}</h2>
+            <h2>{{ article.description }}</h2>
+            <h2>{{ article.date }}</h2>
+            <p>
+                <a href="{% url 'article_detail' article.pk%}">Подробнее о задаче..</a>
+            </p>
+    {% endfor %}
+{% endblock %}
+</body>
+</html>
